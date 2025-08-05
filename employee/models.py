@@ -72,7 +72,7 @@ class Employee(models.Model):
         verbose_name=_("User"),
     )
     employee_ar_name = models.CharField(
-        max_length=200, null=False, verbose_name=_("Arabic Name")
+        max_length=200, null=True, verbose_name=_("Arabic Name")
     )
     employee_first_name = models.CharField(
         max_length=200, null=False, verbose_name=_("First Name")
