@@ -204,13 +204,7 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 
 LANGUAGES = (
     ("en", "English (US)"),
-    ("de", "Deutsche"),
-    ("es", "Español"),
-    ("fr", "Français"),
     ("ar", "عربى"),
-    ("pt-br", "Português (Brasil)"),
-    ("zh-hans", "Simplified Chinese"),
-    ("zh-hant", "Traditional Chinese"),
 )
 
 
@@ -224,7 +218,7 @@ LOCALE_PATHS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = env("TIME_ZONE", default="Asia/Kolkata")
+TIME_ZONE = env("TIME_ZONE", default="Africa/Tripoli")
 
 USE_I18N = True
 

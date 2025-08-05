@@ -50,6 +50,7 @@ class EmployeeAdmin(admin.ModelAdmin):
         "badge_id",
         "employee_first_name",
         "employee_last_name",
+        "employee_ar_name",
         "employee_user_id",
         "is_active",
     )
@@ -58,6 +59,7 @@ class EmployeeAdmin(admin.ModelAdmin):
         "badge_id",
         "employee_user_id__username",
         "employee_first_name",
+        "employee_ar_name",
         "employee_last_name",
     )
 

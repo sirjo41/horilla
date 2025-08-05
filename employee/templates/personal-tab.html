@@ -12,6 +12,24 @@
           <ul class="oh-profile__card-info-list">
             <li class="oh-profile__card-info-item">
               <span class="oh-profile__info-label mb-1">
+                <ion-icon name="flag-outline"></ion-icon>
+                <span>{% trans "Nationality" %}</span>
+              </span>
+              <span class="oh-profile__info-value"
+                >{{employee.employee_nationality}}</span
+              >
+            </li>
+            <li class="oh-profile__card-info-item">
+              <span class="oh-profile__info-label mb-1">
+                <ion-icon name="information-outline"></ion-icon>
+                <span>{% trans "National ID" %}</span>
+              </span>
+              <span class="oh-profile__info-value"
+                >{{employee.employee_national_number}}</span
+              >
+            </li>
+            <li class="oh-profile__card-info-item">
+              <span class="oh-profile__info-label mb-1">
                 <ion-icon name="calendar-outline"></ion-icon>
                 <span>{% trans "Date of Birth" %}</span>
               </span>

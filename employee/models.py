@@ -56,7 +56,6 @@ class Employee(models.Model):
     choice_gender = [
         ("male", trans("Male")),
         ("female", trans("Female")),
-        ("other", trans("Other")),
     ]
     choice_marital = (
         ("single", trans("Single")),
@@ -72,6 +71,9 @@ class Employee(models.Model):
         related_name="employee_get",
         verbose_name=_("User"),
     )
+    employee_ar_name = models.CharField(
+        max_length=200, null=False, verbose_name=_("Arabic Name")
+    )
     employee_first_name = models.CharField(
         max_length=200, null=False, verbose_name=_("First Name")
     )
@@ -83,6 +85,8 @@ class Employee(models.Model):
     phone = models.CharField(
         max_length=25,
     )
+    employee_nationality = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("Nationality"))
+    employee_national_number = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("National ID"))
     address = models.TextField(max_length=200, blank=True, null=True)
     country = models.CharField(max_length=100, blank=True, null=True)
     state = models.CharField(max_length=100, null=True, blank=True)
