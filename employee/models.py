@@ -149,6 +149,10 @@ class Employee(models.Model):
         if self.employee_nationality:
             return self.employee_nationality
         return None
+    def get_employee_nationality_id(self) -> any:
+        if self.employee_national_number:
+            return self.employee_national_number
+        return None
     def get_employee_dob(self) -> any:
         if self.dob:
             return self.dob.strftime("%d %b")

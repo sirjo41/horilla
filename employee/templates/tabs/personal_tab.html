@@ -15,7 +15,15 @@
 							<span>{% trans "Nationality" %}</span>
 						</span>
 						<span
-							class="oh-profile__info-value dateformat_changer">{{employee.get_employee_employee_nationality|default:_("None")}}</span>
+							class="oh-profile__info-value dateformat_changer">{{employee.get_employee_nationality|default:_("None")}}</span>
+					</li>
+					<li class="oh-profile__card-info-item">
+						<span class="oh-profile__info-label mb-1">
+							<ion-icon name="calendar-outline"></ion-icon>
+							<span>{% trans "National Number" %}</span>
+						</span>
+						<span
+							class="oh-profile__info-value dateformat_changer">{{employee.get_employee_nationality_id|default:_("None")}}</span>
 					</li>			
 					<li class="oh-profile__card-info-item">
 						<span class="oh-profile__info-label mb-1">
