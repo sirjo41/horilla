@@ -13768,8 +13768,6 @@ msgstr "بصمة"
 msgid "Work Email"
 msgstr "بريد إلكتروني"
 
-msgid "None"
-msgstr "لا شيء"
 
 msgid "Arabic Name"
 msgstr "الاسم العربي"
