@@ -13761,12 +13761,23 @@ msgstr "بصمة"
 #: .\biometric\templates\biometric_users\dahua\list_dahua_employees.html:15
 #: .\employee\templates\employee\profile\profile_view.html:156
 #: .\employee\templates\employee\profile\work_info.html:69
-#: .\employee\templates\employee\view\individual.html:252
+#: .\employee\templates\employee\view\individual.html:259
 #: .\employee\templates\employee_personal_info\employee_list.html:110
 #: .\employee\templates\employee_personal_info\group_by.html:85
 #: .\employee\views.py:1125
 msgid "Work Email"
 msgstr "بريد إلكتروني"
+
+
+msgid "Arabic Name"
+msgstr "الاسم العربي"
+
+msgid "Nationality"
+msgstr "الجنسية"
+
+msgid "National Number"
+msgstr "الرقم الوطني"
+
 
 #: .\biometric\templates\biometric\list_employees_biometric.html:33
 #: .\biometric\templates\biometric\list_employees_cosec_biometric.html:36
@@ -27356,3 +27367,4 @@ msgstr ""
 
 #~ msgid "Search in : Job Role"
 #~ msgstr "البحث في : الدور الوظيفي"
+
