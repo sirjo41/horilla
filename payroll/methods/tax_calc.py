@@ -7,7 +7,7 @@ based on their contract details and income information.
 
 import datetime
 import logging
-
+from employee.models import Employee
 from payroll.methods.methods import (
     compute_yearly_taxable_amount,
     convert_year_tax_to_period,
@@ -34,7 +34,6 @@ def calculate_taxable_amount(**kwargs):
     Returns:
         float: The federal tax amount for the specified period.
     """
-
     employee_id = kwargs["employee"]
     start_date = kwargs["start_date"]
     end_date = kwargs["end_date"]
@@ -112,13 +111,13 @@ def pass_print(*args, **kwargs):
             exec(code, {}, local_vars)
 
             gross_income = income
-            marital_status = getattr(contract, "marital_status", "single")
-            num_children = getattr(contract, "num_children", 0)
+            marital_status = employee_id.marital_status
+            num_children =  employee_id.children
 
             federal_tax = local_vars["calcluate_federal_tax"](
                 gross_income,
-                marital_status=marital_status,
-                num_children=num_children
+                marital_status,
+                num_children
             )
         except Exception as e:
             logger.error(f"Custom federal tax script error: {e}")
@@ -138,4 +137,4 @@ def pass_print(*args, **kwargs):
         end_date=end_date,
     )
 
-    return federal_tax #federal_tax_for_period
+    return federal_tax  # or return federal_tax_for_period if you want prorated
