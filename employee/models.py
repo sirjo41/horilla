@@ -145,7 +145,10 @@ class Employee(models.Model):
         if self.employee_profile:
             url = self.employee_profile.url
         return url
-
+    def get_employee_nationality(self) -> any:
+        if self.employee_nationality:
+            return self.employee_nationality
+        return None
     def get_employee_dob(self) -> any:
         if self.dob:
             return self.dob.strftime("%d %b")
