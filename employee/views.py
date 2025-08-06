@@ -2883,7 +2883,7 @@ def dashboard_employee_gender(request):
     """
     This method is used to filter out gender vise employees
     """
-    labels = [_("Male"), _("Female"), _("Other")]
+    labels = [_("Male"), _("Female")]
     employees = Employee.objects.filter(is_active=True)
 
     response = {
@@ -2893,7 +2893,6 @@ def dashboard_employee_gender(request):
                 "data": [
                     len(employees.filter(gender="male")),
                     len(employees.filter(gender="female")),
-                    len(employees.filter(gender="other")),
                 ],
             },
         ],
