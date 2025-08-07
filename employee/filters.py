@@ -220,7 +220,7 @@ class EmployeeFilter(HorillaFilterSet):
         ids = list(filter(None, map(_icontains, queryset)))
         queryset = queryset.filter(id__in=ids)
         queryset = queryset | self.queryset.filter(
-            Q(employee_first_name_arabic__icontains=value)
+            Q(employee_ar_name__icontains=value)
         )
         return queryset.distinct()
 
