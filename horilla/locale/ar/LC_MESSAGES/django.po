@@ -22942,8 +22942,8 @@ msgstr "إجمالي الأرباح - إجمالي الخصومات"
 #: .\payroll\templates\payroll\payslip\individual_pdf.html:243
 #: .\payroll\templates\payroll\payslip\payslip_pdf.html:363
 #: .\payroll\templates\payroll\payslip\test_pdf.html:363
-msgid "Federal Tax"
-msgstr "ضريبة فيدرالية"
+msgid "Income Tax"
+msgstr "ضريبة الدخل"
 
 #: .\payroll\templates\payroll\payslip\individual_payslip_summery.html:217
 #, fuzzy

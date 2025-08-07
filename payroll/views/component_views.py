@@ -1966,7 +1966,7 @@ def payslip_detailed_export_data(request):
         )
     ]
     selected_columns += [
-        ("federal_tax", "Federal Tax"),
+        ("federal_tax", "Income Tax"),
         ("other_deductions", "Other Deductions"),
         ("total_deductions", "Total Deductions"),
     ]
@@ -1995,7 +1995,7 @@ def payslip_detailed_export_data(request):
         "Total Deductions": 0,
         "Net Pay": 0,
         "Gross Pay": 0,
-        "Federal Tax": 0,
+        "Income Tax": 0,
     }
 
     totals.update(allowance_totals)
@@ -2087,13 +2087,13 @@ def payslip_detailed_export_data(request):
         payslip_data["Other Deductions"] = other_deductions_sum
         payslip_data["Total Allowances"] = total_allowance
         payslip_data["Total Deductions"] = total_deduction
-        payslip_data["Federal Tax"] = federal_tax
+        payslip_data["Income Tax"] = federal_tax
 
         totals["Other Allowances"] += other_allowances_sum
         totals["Other Deductions"] += other_deductions_sum
         totals["Total Allowances"] += total_allowance
         totals["Total Deductions"] += total_deduction
-        totals["Federal Tax"] += federal_tax
+        totals["Income Tax"] += federal_tax
 
         payslips_data.append(payslip_data)
 
@@ -2180,7 +2180,7 @@ def payslip_detailed_export(request):
     header_row = [col_name for _, col_name in selected_columns]
     allowances_header = allowances + ["Other Allowances", "Total Allowances"]
     deductions_header = deductions + [
-        "Federal Tax",
+        "Income Tax",
         "Other Deductions",
         "Total Deductions",
     ]
