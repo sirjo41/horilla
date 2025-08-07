@@ -39,6 +39,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as __
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_http_methods
+from django.db.models import Q
 
 from accessibility.decorators import enter_if_accessible
 from accessibility.methods import update_employee_accessibility_cache
@@ -1814,13 +1815,15 @@ def employee_card(request):
         filter_obj = EmployeeFilter(
             request.GET,
             queryset=employees.filter(
-                employee_first_name__icontains=search, is_active=True
+            (Q(employee_first_name__icontains=search) |
+            Q(employee_ar_name__icontains=search)) &
+            Q(is_active=True)
             ),
         )
     else:
         filter_obj = EmployeeFilter(
             request.GET,
-            queryset=employees.filter(employee_first_name__icontains=search),
+            queryset=employees.filter(Q(employee_first_name__icontains=search) | Q(employee_ar_name__icontains=search)),
         )
     page_number = request.GET.get("page")
     employees = sortby(request, filter_obj.qs, "orderby")
