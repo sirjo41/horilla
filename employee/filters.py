@@ -218,11 +218,12 @@ class EmployeeFilter(HorillaFilterSet):
             return instance.pk if value in result else None
 
         ids = list(filter(None, map(_icontains, queryset)))
-        queryset = queryset.filter(id__in=ids)
-        queryset = queryset | self.queryset.filter(
-            Q(employee_ar_name__icontains=value)
+        arabic_ids = list(
+            self.queryset.filter(employee_ar_name__icontains=value)
+            .values_list("id", flat=True)
         )
-        return queryset.distinct()
+        all_ids = set(ids) | set(arabic_ids) 
+        return queryset.filter(id__in=all_ids)
 
 
 class EmployeeReGroup:
