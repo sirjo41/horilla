@@ -110,7 +110,7 @@ class EmployeeFilter(HorillaFilterSet):
 
         model = Employee
         fields = [
-            "employee_ar_name"
+            "employee_ar_name",
             "employee_first_name",
             "employee_last_name",
             "email",
@@ -271,6 +271,7 @@ class DocumentRequestFilter(FilterSet):
             "employee_id",
             "document_request_id",
             "status",
+            "employee_id__employee_ar_name",
             "employee_id__employee_first_name",
             "employee_id__employee_last_name",
             "employee_id__is_active",
