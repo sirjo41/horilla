@@ -39,7 +39,6 @@ from django.utils import timezone
 from django.utils.translation import gettext as __
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_http_methods
-from django.db.models import Q
 
 from accessibility.decorators import enter_if_accessible
 from accessibility.methods import update_employee_accessibility_cache
@@ -1801,6 +1800,7 @@ def employee_filter_view(request):
 @manager_can_enter("employee.view_employee")
 @hx_request_required
 def employee_card(request):
+    from django.db.models import Q
     """
     This method renders card template to view all employees.
     """
@@ -1842,6 +1842,7 @@ def employee_card(request):
 @manager_can_enter("employee.view_employee")
 @hx_request_required
 def employee_list(request):
+    from django.db.models import Q
     """
     This method renders template to view all employees
     """
