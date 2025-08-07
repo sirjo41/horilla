@@ -1853,13 +1853,15 @@ def employee_list(request):
         filter_obj = EmployeeFilter(
             request.GET,
             queryset=Employee.objects.filter(
-                employee_first_name__icontains=search, is_active=True
+            (Q(employee_first_name__icontains=search) |
+            Q(employee_ar_name__icontains=search)) &
+            Q(is_active=True)
             ),
         )
     else:
         filter_obj = EmployeeFilter(
             request.GET,
-            queryset=Employee.objects.filter(employee_first_name__icontains=search),
+            queryset=Employee.objects.filter(Q(employee_first_name__icontains=search) | Q(employee_ar_name__icontains=search)),
         )
     employees = filtersubordinatesemployeemodel(
         request, filter_obj.qs, "employee.view_employee"
