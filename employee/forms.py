@@ -465,10 +465,9 @@ class EmployeeBankDetailsUpdateForm(ModelForm):
 
 excel_columns = [
     ("badge_id", trans("Badge ID")),
+    ("employee_ar_name", trans("Arabic Name")),
     ("employee_first_name", trans("First Name")),
     ("employee_last_name", trans("Last Name")),
-    ("employee_first_name_ar", trans("First Name Ar")),
-    ("employee_last_name_ar", trans("Last Name Ar")),
     ("email", trans("Email")),
     ("phone", trans("Phone")),
     ("employee_nationality", trans("Nationality")),
