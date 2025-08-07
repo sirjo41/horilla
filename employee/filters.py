@@ -110,6 +110,7 @@ class EmployeeFilter(HorillaFilterSet):
 
         model = Employee
         fields = [
+            "employee_ar_name"
             "employee_first_name",
             "employee_last_name",
             "email",
@@ -203,6 +204,7 @@ class EmployeeFilter(HorillaFilterSet):
         return super().filter_queryset(queryset)
 
     def filter_by_name(self, queryset, name, value):
+        from django.db.models import Q
         """
         Employee search method
         """
@@ -216,7 +218,11 @@ class EmployeeFilter(HorillaFilterSet):
             return instance.pk if value in result else None
 
         ids = list(filter(None, map(_icontains, queryset)))
-        return queryset.filter(id__in=ids)
+        queryset = queryset.filter(id__in=ids)
+        queryset = queryset | self.queryset.filter(
+            Q(employee_first_name_arabic__icontains=value)
+        )
+        return queryset.distinct()
 
 
 class EmployeeReGroup:
@@ -265,6 +271,7 @@ class DocumentRequestFilter(FilterSet):
             "employee_id",
             "document_request_id",
             "status",
+            "employee_id__employee_ar_name",
             "employee_id__employee_first_name",
             "employee_id__employee_last_name",
             "employee_id__is_active",
