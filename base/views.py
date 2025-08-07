@@ -980,8 +980,8 @@ def employee_workinfo_complete(request):
     employees_workinfos = filtersubordinates(
         request,
         queryset=EmployeeWorkInformation.objects.filter(
-            employee_id__employee_first_name__icontains=search,
-            employee_id__employee_arabic_name__icontains=search,
+            Q(employee_id__employee_first_name__icontains=search) | 
+            Q(employee_id__employee_ar_name__icontains=search),
             employee_id__is_active=True,
         ),
         perm="employee.view_employeeworkinformation",
