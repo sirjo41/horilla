@@ -97,7 +97,7 @@
 						<span class="oh-payslip__title oh-payslip__title--h2">{% trans "to" %}</span> &nbsp
 						<span class="oh-payslip__title oh-payslip__title--h2 dateformat_changer">{{formatted_end_date}}</span> &nbsp , &nbsp
 						<span class="oh-payslip__netpay-title">{% trans "Employee Net Pay :" %}</span> &nbsp
-						<span class="oh-payslip__netpay-amount">{{net_pay|floatformat:2|currency_symbol_position}}</span>
+						<span class="oh-payslip__netpay-amount">{{net_pay|floatformat:3|currency_symbol_position}}</span>
 					</h2>
 				</div>
 			</div>
@@ -164,14 +164,14 @@
 									{% trans "Basic Pay" %}
 								</td>
 								<td class="oh-payslip__table-td">
-									{{basic_pay|floatformat:2|currency_symbol_position}}
+									{{basic_pay|floatformat:3|currency_symbol_position}}
 								</td>
 							</tr>
 							{% for allowance in all_allowances %}
 								<tr>
 									<td class="oh-payslip__table-td">{{allowance.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{allowance.amount|floatformat:2|currency_symbol_position}}
+										{{allowance.amount|floatformat:3|currency_symbol_position}}
 									</td>
 								</tr>
 							{% endfor %}
@@ -185,7 +185,7 @@
 									{% trans "Total Gross Pay" %}
 								</th>
 								<th class="oh-payslip__table-tf">
-									{{gross_pay|floatformat:2|currency_symbol_position}}
+									{{gross_pay|floatformat:3|currency_symbol_position}}
 								</th>
 							</tr>
 						</tfoot>
@@ -202,14 +202,14 @@
 							<tr class="oh-payslip__table-tr">
 								<td class="oh-payslip__table-td">{% trans "Loss of Pay" %}</td>
 								<td class="oh-payslip__table-td">
-									{{loss_of_pay|floatformat:2|currency_symbol_position}}
+									{{loss_of_pay|floatformat:3|currency_symbol_position}}
 								</td>
 							</tr>
 							{% for deduction in basic_pay_deductions %}
 								<tr class="oh-payslip__table-tr">
 									<td class="oh-payslip__table-td">{{deduction.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{deduction.amount|floatformat:2|currency_symbol_position}}
+										{{deduction.amount|floatformat:3|currency_symbol_position}}
 									</td>
 								</tr>
 							{% endfor %}
@@ -217,7 +217,7 @@
 							<tr class="oh-payslip__table-tr">
 								<td class="oh-payslip__table-td">{{deduction.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{deduction.amount|floatformat:2|currency_symbol_position}}
+										{{deduction.amount|floatformat:3|currency_symbol_position}}
 									</td>
 							</tr>
 							{% endfor %}
@@ -225,7 +225,7 @@
 								<tr class="oh-payslip__table-tr">
 									<td class="oh-payslip__table-td">{{deduction.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{deduction.amount|floatformat:2|currency_symbol_position}}
+										{{deduction.amount|floatformat:3|currency_symbol_position}}
 									</td>
 								</tr>
 							{% endfor %}
@@ -233,7 +233,7 @@
 								<tr class="oh-payslip__table-tr">
 									<td class="oh-payslip__table-td">{{deduction.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{deduction.amount|floatformat:2|currency_symbol_position}}
+										{{deduction.amount|floatformat:3|currency_symbol_position}}
 									</td>
 
 								</tr>
@@ -242,7 +242,7 @@
 							<tr class="oh-payslip__table-tr">
 								<td class="oh-payslip__table-td">{% trans "Income Tax" %}</td>
 								<td class="oh-payslip__table-td">
-									{{federal_tax|floatformat:2|currency_symbol_position}}
+									{{federal_tax|floatformat:3|currency_symbol_position}}
 								</td>
 							</tr>
 
@@ -250,7 +250,7 @@
 								<tr class="oh-payslip__table-tr">
 									<td class="oh-payslip__table-td">{{deduction.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{deduction.amount|floatformat:2|currency_symbol_position}}
+										{{deduction.amount|floatformat:3|currency_symbol_position}}
 									</td>
 								</tr>
 							{% endfor %}
@@ -258,7 +258,7 @@
 								<tr class="oh-payslip__table-tr">
 									<td class="oh-payslip__table-td">{{deduction.title}}</td>
 									<td class="oh-payslip__table-td">
-										{{deduction.amount|floatformat:2|currency_symbol_position}}
+										{{deduction.amount|floatformat:3|currency_symbol_position}}
 									</td>
 								</tr>
 							{% endfor %}
@@ -267,7 +267,7 @@
 							<tr class="oh-payslip__table-tr">
 								<th class="oh-payslip__table-tf">{% trans "Total Deductions" %}</th>
 								<th class="oh-payslip__table-tf">
-									{{total_deductions|floatformat:2|currency_symbol_position}}
+									{{total_deductions|floatformat:3|currency_symbol_position}}
 								</th>
 							</tr>
 						</tfoot>
@@ -287,7 +287,7 @@
 								>
 							</th>
 								<th class="oh-payslip__table-th" style="font-size: 14px">
-									{{net_pay|floatformat:2|currency_symbol_position}}
+									{{net_pay|floatformat:3|currency_symbol_position}}
 								</th>
 						</tr>
 					</thead>

@@ -26,8 +26,8 @@
               <span class="oh-profile__name oh-text--dark">{{ deduction.title }}</span>
             </div>
           </div>
-          <div class="oh-sticky-table__td">{{ deduction.employee_contribution|floatformat:2|currency_symbol_position }}</div>
-          <div class="oh-sticky-table__td">{{ deduction.employer_contribution|floatformat:2|currency_symbol_position }}</div>
+          <div class="oh-sticky-table__td">{{ deduction.employee_contribution|floatformat:3|currency_symbol_position }}</div>
+          <div class="oh-sticky-table__td">{{ deduction.employer_contribution|floatformat:3|currency_symbol_position }}</div>
         </div>
       {% endfor %}
     </div>
