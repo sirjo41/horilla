@@ -271,9 +271,12 @@ def daily_computation(employee, wage, start_date, end_date):
     ).first()
 
     unpaid_leaves = leave_data["unpaid_leaves"] - unpaid_half_leaves
-    if contract.calculate_daily_leave_amount:
-        loss_of_pay = (unpaid_leaves) * wage
-    else:
+    if contract.calculate_daily_leave_amount == 1:
+        loss_of_pay = (unpaid_leaves) * daily_computed_salary
+    elif contract.calculate_daily_leave_amount == 2:
+        daily_salary = contract.basic_pay / 30
+        loss_of_pay = unpaid_leaves * daily_salary
+    elif contract.calculate_daily_leave_amount == 3:
         fixed_penalty = contract.deduction_for_one_leave_amount
         loss_of_pay = (unpaid_leaves) * fixed_penalty
     if contract.deduct_leave_from_basic_pay:
@@ -475,9 +478,12 @@ def monthly_computation(employee, wage, start_date, end_date, *args, **kwargs):
     daily_computed_salary = get_daily_salary(wage=wage, wage_date=start_date)[
         "day_wage"
     ]
-    if contract.calculate_daily_leave_amount:
+    if contract.calculate_daily_leave_amount == 1:
         loss_of_pay = (unpaid_leaves) * daily_computed_salary
-    else:
+    elif contract.calculate_daily_leave_amount == 2:
+        daily_salary = contract.basic_pay / 30
+        loss_of_pay = unpaid_leaves * daily_salary
+    elif contract.calculate_daily_leave_amount == 3:
         fixed_penalty = contract.deduction_for_one_leave_amount
         loss_of_pay = (unpaid_leaves) * fixed_penalty
 

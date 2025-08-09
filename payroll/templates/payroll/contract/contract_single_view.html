@@ -92,14 +92,19 @@
             </div>
             <div class="oh-timeoff-modal__stats-container mt-3 mb-3">
                 <div class="oh-timeoff-modal__stat">
-                    {% if contract.calculate_daily_leave_amount %}
-                        <span class="oh-timeoff-modal__stat-title">{% trans "Calculate Leave Amount" %}</span>
-                        <span class="oh-timeoff-modal__stat-count">{{contract.calculate_daily_leave_amount|yes_no}}</span>
-                    {% else %}
+                    {% if contract.calculate_daily_leave_amount == 1 %}
+                        <span class="oh-timeoff-modal__stat-title">{% trans "Leave Calculation Method" %}</span>
+                        <span class="oh-timeoff-modal__stat-count">{% trans "Basic Pay ÷ Working Days" %}</span>
+                    {% elif contract.calculate_daily_leave_amount == 2 %}
+                        <span class="oh-timeoff-modal__stat-title">{% trans "Leave Calculation Method" %}</span>
+                        <span class="oh-timeoff-modal__stat-count">{% trans "Basic Pay ÷ 30" %}</span>
+
+                    {% elif contract.calculate_daily_leave_amount == 3 %}
                         <span class="oh-timeoff-modal__stat-title">{% trans "Deduction Amount For One Leave" %}</span>
-                        <span class="oh-timeoff-modal__stat-count">{{contract.deduction_for_one_leave_amount}}</span>
+                        <span class="oh-timeoff-modal__stat-count">{{ contract.deduction_for_one_leave_amount }}</span>
                     {% endif %}
-                </div>
+                    </div>
+
                 <div class="oh-timeoff-modal__stat" style="margin-left: 20px;">
                     <span class="oh-timeoff-modal__stat-title">{% trans "Deduct From Basic Pay" %}</span>
                     <span class="oh-timeoff-modal__stat-count">{{contract.deduct_leave_from_basic_pay|yes_no}}</span>

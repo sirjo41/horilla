@@ -248,13 +248,17 @@ class Contract(HorillaModel):
         verbose_name=_("Deduct From Basic Pay"),
         help_text=_("Deduct the leave amount from basic pay."),
     )
-    calculate_daily_leave_amount = models.BooleanField(
-        default=True,
-        verbose_name=_("Calculate Daily Leave Amount"),
-        help_text=_(
-            "Leave amount will be calculated by dividing the basic pay by number of working days."
-        ),
-    )
+    CALCULATION_METHODS = [
+    (1, _("Basic Pay ÷ Working Days")),
+    (2, _("Basic Pay ÷ 30")),
+    (3, _("Custom Amount")),
+]
+    calculate_daily_leave_amount =models.IntegerField(
+    choices=CALCULATION_METHODS,
+    default=1,
+    verbose_name=_("Leave Deduction Method"),
+    help_text=_("Select how the leave amount will be calculated."),
+)
     deduction_for_one_leave_amount = models.FloatField(
         null=True,
         blank=True,
@@ -307,7 +311,7 @@ class Contract(HorillaModel):
             )
 
         if self.wage_type in ["daily", "monthly"]:
-            if not self.calculate_daily_leave_amount:
+            if self.calculate_daily_leave_amount == 3:
                 if self.deduction_for_one_leave_amount is None:
                     raise ValidationError(
                         {"deduction_for_one_leave_amount": _("This field is required")}
