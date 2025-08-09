@@ -67,8 +67,7 @@
         }
 
         $(document).ready(function () {
-            $("[type=checkbox]").change(function (e) {
-                e.preventDefault();
+            $("#id_calculate_daily_leave_amount").change(function () {
                 toggleFunction();
                 rangeToggle()
             });
