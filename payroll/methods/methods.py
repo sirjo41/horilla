@@ -482,7 +482,7 @@ def monthly_computation(employee, wage, start_date, end_date, *args, **kwargs):
         loss_of_pay = (unpaid_leaves) * daily_computed_salary
     elif contract.calculate_daily_leave_amount == 2:
         daily_salary = wage / 30
-        loss_of_pay = unpaid_leaves * daily_salary
+        loss_of_pay = unpaid_leaves * float(daily_salary)
     elif contract.calculate_daily_leave_amount == 3:
         fixed_penalty = contract.deduction_for_one_leave_amount
         loss_of_pay = (unpaid_leaves) * fixed_penalty
