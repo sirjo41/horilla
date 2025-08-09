@@ -1505,8 +1505,8 @@ def mail_server_conf(request):
 def mail_server_test_email(request):
     instance_id = request.GET.get("instance_id")
     white_labelling = getattr(horilla_apps, "WHITE_LABELLING", False)
-    image_path = path.join(settings.STATIC_ROOT, "images/ui/horilla-logo.png")
-    company_name = "Horilla"
+    image_path = path.join(settings.STATIC_ROOT, "images/ui/auth-logo.png")
+    company_name = "ATC"
 
     if white_labelling:
         hq = Company.objects.filter(hq=True).last()
@@ -1528,7 +1528,7 @@ def mail_server_test_email(request):
         form = DynamicMailTestForm(request.POST)
         if form.is_valid():
             email_to = form.cleaned_data["to_email"]
-            subject = _("Test mail from Horilla")
+            subject = _("Test mail from ATC")
 
             # HTML content
             html_content = f"""
