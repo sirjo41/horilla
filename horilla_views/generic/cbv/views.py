@@ -1464,8 +1464,8 @@ class HorillaDetailedView(DetailView):
     title = "Detailed View"
     template_name = "generic/horilla_detailed_view.html"
     header: dict = {
-        "title": "ATC",
-        "subtitle": "ATC Detailed View",
+        "title": "CAL",
+        "subtitle": "CAL Detailed View",
         "avatar": "",
     }
     body: list = []
